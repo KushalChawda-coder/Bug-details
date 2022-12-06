@@ -88,7 +88,7 @@
       
     <div class="mb-3">
       <label for="Image" class="form-label">bug image</label>
-      <input class="form-control" type="file"  name="bug_image" id="Image" id="thumbnail" onchange="readURL(this)">
+      <input class="form-control" type="file"  name="bug_image" id="Image" id="thumbnail" accept="image/*" onchange="readURL(this)">
       <img class="mt-3" src="{{ asset($bug->bug_image) }}" width="100px" id="show"/>
       <div class="invalid-feedback">
         Please choose a Image.

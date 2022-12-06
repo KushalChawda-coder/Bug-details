@@ -79,7 +79,7 @@
 
     <div class="mb-3">
       <label for="Image" class="form-label">please chosse a bug image</label>
-      <input class="form-control" type="file" name="bug_image" id="Image" id="validationCustom08" required  onchange="readURL(this)">
+      <input class="form-control" type="file" name="bug_image" id="Image" id="validationCustom08" accept="image/*" required  onchange="readURL(this)">
        <img class="mt-3" src="" width="100px" id="show"/>
       <div class="invalid-feedback">
         Please choose a image.
