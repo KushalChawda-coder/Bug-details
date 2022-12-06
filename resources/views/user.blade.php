@@ -12,7 +12,7 @@
       <th scope="col">Bug URL</th>
       <th scope="col">Bug Priority</th>
       <th scope="col">Bug Status</th>
-      <th scope="col">Comment <img src="https://img.icons8.com/ios-glyphs/30/null/create-new.png"/></th>
+      <th scope="col">Comment <img  src="https://img.icons8.com/ios-glyphs/30/null/create-new.png"/></th>
       <th scope="col">Screen shot</th>
       <!-- <th scope="col">Action</th> -->
     </tr>
