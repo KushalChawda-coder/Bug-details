@@ -1,8 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Bug;
 use App\Models\User;
@@ -18,16 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {        
-        // $this->call([
-        //     User_seed::class,
-        //     Bug_type_seed::class,
-        //     Bug_seed::class,
-        //     Bug_status_seed::class,
-
-        // ]);
-  
-
-   
+      
      $user = array(
           array('uid' => '1','name' => 'yatish ','email' => 'yatish1@gmail.com','password' => '12345','user_status' => '1','user_type' => 'Tester','created_at' => '2022-11-30 09:57:16','updated_at' => '2022-11-30 09:57:16'),
           array('uid' => '2','name' => 'kushal chawda','email' => 'kushal@gmail.com','password' => '12345','user_status' => '1','user_type' => 'Developer','created_at' => NULL,'updated_at' => NULL),
