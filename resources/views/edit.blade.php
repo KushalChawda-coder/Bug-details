@@ -89,7 +89,7 @@
     <div class="mb-3">
       <label for="Image" class="form-label">bug image</label>
       <input class="form-control" type="file"  name="bug_image" id="Image" id="thumbnail" accept="image/*" onchange="readURL(this)">
-      <img class="mt-3" src="{{ asset($bug->bug_image) }}" width="100px" id="show"/>
+      <img class="mt-3" src="{{ asset($bug->bug_image) }}" width="100px" id="show-image"/>
       <div class="invalid-feedback">
         Please choose a Image.
       </div>
@@ -100,42 +100,6 @@
 	  </div>
 	</form>
 </div>	
-<script type="text/javascript">
-	// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
-</script>	
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-      <script>
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-
-      reader.onload = function (e) {
-        $('#show').attr('src', e.target.result).width(250).height(200);
-      };
-
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>  
 @endsection
 @endif

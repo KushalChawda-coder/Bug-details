@@ -34,12 +34,13 @@ class BugController extends Controller {
       session(['login_status' => true]);
       session(['display' => "display_id"]);
       session(['name' => $users[0]->name]);
+      session(['messeage_status' => true]);
       $results = DB::table('bug')->join('bug_type', 'bug.bug_category', '=', 'bug_type.bug_type_id')
                                 ->join('user', 'user.uid', '=', 'bug.assigned_to')
                               ->join('bug_status', 'bug_status.bug_status_id', '=', 'bug.bug_status')->get();
       \Session::flash('message', 'Successfully login :)');
       \Session::flash('alert-class', 'alert-success');
-      return view('admin')->with('Bugs_row',$results); 
+      return redirect('bug_details')->with('Bugs_row',$results); 
     }
   }
 
@@ -53,8 +54,8 @@ class BugController extends Controller {
     $results1 = Bug_type::all();
     $results2 = User::all();
     $results3 = Bug_status::all();
-   return view('create', ["Bug_type"=>$results1,"user"=>$results2,"Bug_status"=>$results3]);
-    }
+    return view('create', ["Bug_type"=>$results1,"user"=>$results2,"Bug_status"=>$results3]);
+  }
 
   public function insert(Request $request){  
    $input=$request->all();
@@ -80,31 +81,31 @@ class BugController extends Controller {
     // update code
   public function update(Request $request){
     if(session()->has('login_status')){
-    $input = request()->except(['_token']);
-    if ($request->file('bug_image') != "") {
-      $fileName = time().".".$request->file('bug_image')->getClientOriginalExtension();
-      $path=$request->file('bug_image')->storeAs('images',$fileName,'public');
-      $input["bug_image"]='/storage/'.$path;
-      $affected = DB::table('bug')->where('id', $_POST['id'])->update($input);
-    } else {
-      $bug = DB::table('bug')->join('bug_type', 'bug.bug_category', '=', 'bug_type.bug_type_id')
-        ->join('bug_status', 'bug_status.bug_status_id', '=', 'bug.bug_status')
-        ->join('user', 'user.uid', '=', 'bug.assigned_to')->where('id', $_POST['id'])->first();
-      $bug_image=$bug->bug_image;
-      $input["bug_image"]=$bug_image;
-      $affected = DB::table('bug')->where('id', $_POST['id'])->update($input);
-    }
+      $input = request()->except(['_token']);
+      if ($request->file('bug_image') != "") {
+        $fileName = time().".".$request->file('bug_image')->getClientOriginalExtension();
+        $path=$request->file('bug_image')->storeAs('images',$fileName,'public');
+        $input["bug_image"]='/storage/'.$path;
+        $affected = DB::table('bug')->where('id', $_POST['id'])->update($input);
+      } else {
+        $bug = DB::table('bug')->join('bug_type', 'bug.bug_category', '=', 'bug_type.bug_type_id')
+          ->join('bug_status', 'bug_status.bug_status_id', '=', 'bug.bug_status')
+          ->join('user', 'user.uid', '=', 'bug.assigned_to')->where('id', $_POST['id'])->first();
+        $bug_image=$bug->bug_image;
+        $input["bug_image"]=$bug_image;
+        $affected = DB::table('bug')->where('id', $_POST['id'])->update($input);
+      }
 
-    if ($affected) {
-      \Session::flash('message', 'Successfully updated !');
-      \Session::flash('alert-class', 'alert-success');
-       return redirect('bug_details');
-    } else {
-      \Session::flash('message', 'your data is a same. There is no updated ..');
-      \Session::flash('alert-class', 'alert-warning');
-       return redirect('bug_details');
+      if ($affected) {
+        \Session::flash('message', 'Successfully updated !');
+        \Session::flash('alert-class', 'alert-success');
+         return redirect('bug_details');
+      } else {
+        \Session::flash('message', 'your data is a same. There is no updated ..');
+        \Session::flash('alert-class', 'alert-warning');
+         return redirect('bug_details');
+      }
     }
-  }
   }
 
   public function Delete($id){
@@ -115,7 +116,7 @@ class BugController extends Controller {
         \Session::flash('alert-class', 'alert-danger');
 	   	return redirect('bug_details');
       } else {
-      echo "something error !!!";
+        echo "something error !!!";
       }
     }
   }

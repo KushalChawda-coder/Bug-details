@@ -32,7 +32,4 @@ Route::POST('update',[BugController::class,'update']);
 Route::get('Delete/{id}',[BugController::class,'Delete']);
 
 Route::get('user_panel',[BugUserController::class,'show']);
- Route::get('useredit/{id}',[BugUserController::class,'edit']);
- Route::POST('user_update',[BugUserController::class,'update']);
-
- // Route::get('send-mail', [MailController::class, 'index']);
+Route::POST('user_update',[BugUserController::class,'update']);
