@@ -3,11 +3,11 @@
 @if(session()->has('login_status'))
 <div class="container">
 	<h1 class="display-2">Bug  data for Tester panel</h1>
-	<a href="/create" class="btn btn-success mb-3"> Add New </a>
-	<table class="table">
+	<a href="/create" class="btn btn-success mb-3">Add New <i class="fa-solid fa-bug"></i></a>
+	<table class="table table-middle table-hover">
     <thead>
       <tr>
-        <th scope="col">Bug ID</th>
+        <th scope="col">Bug ID <i class="fa-solid fa-sort"></i></th>
         <th scope="col">Bug Name</th>
         <th scope="col">Bug description</th>
         <th scope="col">Bug URL</th>
@@ -42,8 +42,8 @@
         <img class="modal-content" id="img01">
         <div id="caption"></div>
       </div>
-      <td width="200px"><a href="/edit/{{$item->id}} " class="btn btn-primary">Edit</a>
-        <a href="Delete/{{$item->id}}" id="delete" onclick="if(confirm('Are you sure want to delete') == false) { event.preventDefault(); }" class="btn btn-danger">Delete</a> </td>
+      <td width="200px"><a href="/edit/{{$item->id}} " class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+        <a href="Delete/{{$item->id}}" id="delete" onclick="if(confirm('Are you sure want to delete') == false) { event.preventDefault(); }" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>   </td>
     </tr>
     @php $i++; @endphp
     @endforeach

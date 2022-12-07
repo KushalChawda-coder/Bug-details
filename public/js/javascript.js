@@ -78,8 +78,8 @@
          });
 
           var $this = $(this);
-           $this.parent().text($this.val().replace(/\n/g, '<br/>') || oriVal);
-           $this.remove(); // Don't just hide, remove the element.
+           $this.parent().text($this.val().replace(/\n/g, ) || oriVal);
+           $this.remove(); 
           update_text=$(this).val();
           key='comment';
            

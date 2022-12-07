@@ -16,6 +16,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
   <script  src="{{asset('js/JavaScript.js')}}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
@@ -30,9 +31,9 @@
 	      <span class="navbar-text" style="padding-right: 10px;">
 	        hi , {{ Session::get('name') }}
 	      </span>
-        <a href="/logout" class="btn btn-outline-success" >Log out</a>
+        <a href="/logout" class="btn btn-outline-success" ><i class="fa-solid fa-right-to-bracket"></i> Log out</a>
         @else
-         <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Log in</button>
+         <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-to-bracket"></i> Log in</button>
          @endif
       </form>
     </div>
