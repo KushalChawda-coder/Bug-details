@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->foreign('bug_status')->references('bug_status_id')->on('bug_status');
             $table->foreign('bug_category')->references('bug_type_id')->on('bug_type');
-             $table->foreign('assigned_to')->references('uid')->on('user');
+             $table->foreign('assigned_to')->references('uid')->on('users');
             $table->timestamps();
         });
     }

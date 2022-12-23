@@ -35,7 +35,7 @@
         <a href="/logout" class="btn btn-outline-success" ><i class="fa-solid fa-right-to-bracket"></i> Log out</a>
         @else
          <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-to-bracket"></i> Log in</button>
-         @endif
+      @endif
       </form>
     </div>
   </div>

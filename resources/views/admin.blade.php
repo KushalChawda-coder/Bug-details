@@ -7,7 +7,7 @@
   <li id="message" class="alert {{ Session::get('alert-class') }}" role="alert">{{Session::get('message');}}</li>
   @php   }   @endphp 
 
-  @if(session()->has('login_status'))
+
 	<a href="/create" class="btn btn-success mb-3">Add New <i class="fa-solid fa-bug"></i></a>
 	<table class="table table-middle table-hover">
     <thead>
@@ -25,16 +25,17 @@
       </tr>
     </thead>
     <tbody>
+      
   	@foreach($Bugs_row as $item)
     <tr>
       <th scope="row">B_{{ $i; }}</th>
       <td>{{$item->bug_title}}</td>
       <td>{{$item->bug_description}}</td>
       <td><a href="{{$item->bug_url}}">{{$item->bug_url}}</a></td>
-      <td>{{$item->bug_category_name}}</td>
-      <td>{{$item->bug_status_name}}</td>
+      <td>{{$item['Bug_type_data'][0]->bug_category_name}}</td>
+      <td>{{$item['bug_status_data'][0]->bug_status_name}}</td>
       <td>{{$item->comment}}</td>
-      <td>{{$item->name}}</td>
+      <td>{{$item["user"][0]->name}}</td>
       <td > <img class="myImg" src="{{ asset($item->bug_image) }}"  width="100px"></td>
 
        <!-- The Modal -->
@@ -52,5 +53,4 @@
 </table>
 </div>
 @endsection
-@endif
 

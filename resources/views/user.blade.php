@@ -1,6 +1,5 @@
 @extends('layout')
 @section('content')
-@if(session()->has('login_status'))
 <div class="container">
 	<h1 class="display-2">Bug  data for Developer panel</h1>
    @php if (session()->has('message')) {  @endphp 
@@ -31,8 +30,8 @@
 
         <td> <div class="dropdown" >
             @foreach($Bug_type as $bug_priority)
-            @if($item->bug_category_name == $bug_priority->bug_category_name)
-            <button class="btn btn-light dropdown-toggle btn_text" style="width:100px; height:44px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $item->bug_category_name }}</button>
+            @if($item['Bug_type_data'][0]->bug_category_name == $bug_priority->bug_category_name)
+            <button class="btn btn-light dropdown-toggle btn_text" style="width:100px; height:44px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $item['Bug_type_data'][0]->bug_category_name }}</button>
                @endif
                @endforeach
            
@@ -48,8 +47,8 @@
 
          <td> <div class="dropdown" >
             @foreach($Bug_status as $bug_status)
-            @if($item->bug_status_name == $bug_status->bug_status_name)
-            <button class="btn btn-light dropdown-toggle btn_text" style="width:100px; height:44px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $item->bug_status_name }}</button>
+            @if($item['bug_status_data'][0]->bug_status_name == $bug_status->bug_status_name)
+            <button class="btn btn-light dropdown-toggle btn_text" style="width:100px; height:44px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $item['bug_status_data'][0]->bug_status_name }}</button>
                @endif
                @endforeach
             <input type="hidden" class="btn_val" name="bug_status" value="{{ $item->id }}">
@@ -78,4 +77,3 @@
   </table>
 </div>
 @endsection
-@endif

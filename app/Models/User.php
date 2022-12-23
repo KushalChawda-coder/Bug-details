@@ -4,9 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
 {
-    protected $table='user';
+    protected $table='users';
     protected $primaryKey='uid';
-    protected $fillable=['name','email','Password','user_status','user_type'];
+    protected $fillable=['name','email','password','user_status','user_type'];
+
+//,Bug_type::class,Bug_status::class
+   
+    
+   
 }
